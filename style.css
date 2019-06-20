@@ -6,6 +6,9 @@
   margin: auto;
   flex-wrap: wrap;
   flex-direction: column;
+  width: 700px;
+  min-height: 100px;
+  height: auto;
 }
 
 .button-container {
@@ -14,8 +17,20 @@
   margin: 0 auto;
 }
 
-.tweets  {
-  background-color: blue;
+.tweets {
+  background-color: gray;
+  border: 1px solid black;
+  flex-wrap: wrap;
+}
+
+.twitterHandle {
+  background-color: white;
+  font-size: 15pt;
+  width: 500px;
+}
+
+.message {
+  
 }
 
 .header {
