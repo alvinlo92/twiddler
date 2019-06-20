@@ -1,20 +1,21 @@
 /* YOUR CSS HERE */
 
 .container {
-  width: 100px;
-  height: 100px;
   border: 2px solid black;
   display: flex;
   margin: auto;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .button-container {
   display: flex;
   justify-content: center;
+  margin: 0 auto;
 }
 
-.tweets {
-  text-transform: uppercase;
+.tweets  {
+  background-color: blue;
 }
 
 .header {
