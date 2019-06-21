@@ -1,7 +1,10 @@
 /* YOUR CSS HERE */
 
+.body {
+  background-color: #e3f1fc;
+}
+
 .container {
-  border: 2px solid black;
   display: flex;
   margin: auto;
   flex-wrap: wrap;
@@ -15,6 +18,7 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  margin-bottom: 15px;
 }
 
 .tweets {
@@ -22,25 +26,48 @@
   border: 1px solid black;
   flex-wrap: wrap;
   margin: 10px;
+  border-radius: 25px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 5px;
 }
 
 .twitterHandle {
+  display: inline;
   background-color: white;
   font-size: 15pt;
   color: rgb(0, 32, 158);
   margin-left: 5px;
+  font-weight: bold;
+  font-family: 'Arial';
+  border-radius: 15px;
+  padding: 5px;
+  cursor: pointer;
 }
 
 .message {
   color: blue;
   margin-left: 15px;
+  font-size: 15pt;
+  margin: 10px;
+  font-family: 'Arial';
+
 }
 
 .time-stamp {
   margin-left: 15px;
-
+  font-size: 10pt;
+  font-family: 'Arial';
 }
 
 .header {
+  display: flex;
+  color: #720e9e;
+  justify-content: center;
+  font-family: Arial;
+  font-size: 25pt;
+}
 
+#refreshTweets {
+  cursor: pointer;
 }
