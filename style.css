@@ -18,19 +18,27 @@
 }
 
 .tweets {
-  background-color: gray;
+  background-color: rgb(134, 202, 236);
   border: 1px solid black;
   flex-wrap: wrap;
+  margin: 10px;
 }
 
 .twitterHandle {
   background-color: white;
   font-size: 15pt;
-  width: 500px;
+  color: rgb(0, 32, 158);
+  margin-left: 5px;
 }
 
 .message {
-  
+  color: blue;
+  margin-left: 15px;
+}
+
+.time-stamp {
+  margin-left: 15px;
+
 }
 
 .header {
