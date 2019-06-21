@@ -1,5 +1,6 @@
 // Utility functions
 
+let userClicked = false;
 
 let tweetBoxMaker = () => {
   let count = 0;
@@ -14,22 +15,18 @@ let tweetBoxMaker = () => {
 
 let makeTweetBox = tweetBoxMaker();
 
-$(document).ready(function(){
-  var $body = $('container');
-  $body.html('');
-
 let newTweets = () => {
   let storedIndex;
+  let storedHandle;
   return function(userHandle) {
     let currentLocation;
-    if (storedIndex === undefined) {
+    if (storedIndex === undefined || storedHandle !== userHandle || userClicked) {
       currentLocation = 0;
+      storedHandle = userHandle;
     } else {
       currentLocation = storedIndex;
     }
 
-    //have a directory variable (which is something like streams.home or streams.user.tweets)
-    //homeLength needs to be set here as well
     let directory;
     if (userHandle === undefined) {
       directory = streams.home;
@@ -66,18 +63,42 @@ let refreshTweets = newTweets();
 
 let showUserTweets = newTweets();
 
-refreshTweets();
+// Things happening in the website:
 
-$('#refreshTweets').on('click', function() {
-  $(refreshTweets()).slideDown("slow", function() {});
-});
+$(document).ready(function(){
+  var $body = $('container');
+  $body.html('');
 
-$('.container').on('click', 'a', function(event) {
-  $('.container').empty();
-  showUserTweets('shawndrost');
-  console.log(event);
-});
-// we want an on click action for twitterHandle
-  // open a new page?
+  refreshTweets();
 
+  $('#refreshTweets').on('click', function() {
+    if (userClicked === true) {
+      $(".container").empty();
+    }
+    $(refreshTweets());
+    userClicked = false;
+  });
+
+
+  let obtainUserTweets = () => {
+
+    return function(thisUser) {
+      if (!userClicked) {
+        $('.container').empty();
+        userClicked = true;
+      }
+      showUserTweets(thisUser);
+      console.log(event);
+    }
+  }
+
+  let filterUserTweets = obtainUserTweets();
+
+  $('.container').on('click', 'a', function(event) {
+    let thisUser = this.text
+    thisUser = thisUser.split('');
+    thisUser.shift();
+    thisUser = thisUser.join('');
+    filterUserTweets(thisUser);
+  });
 });
